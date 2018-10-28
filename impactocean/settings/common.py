@@ -1,7 +1,7 @@
 # Python imports
 from os.path import abspath, basename, dirname, join, normpath
 import sys
-
+import os
 
 # ##### PATH CONFIGURATION ################################
 
