@@ -3,7 +3,7 @@ Description=Gunicorn server for DOMAIN
 
 [Service]
 Restart=on-failure
-User=elspeth
+User=root
 WorkingDirectory=/home/root/sites/DOMAIN
 
 Environment=DJANGO_DEBUG_FALSE=y
