@@ -111,20 +111,11 @@ STATIC_URL = '/static/'
 # the URL for media files
 MEDIA_URL = '/media/'
 
-
-# ##### DEBUG CONFIGURATION ###############################
-DEBUG = False
-
-
-# finally grab the SECRET KEY
-try:
-    SECRET_KEY = open(SECRET_FILE).read().strip()
-except IOError:
-    try:
-        from django.utils.crypto import get_random_string
-        chars = 'm-a)%cx^w6!%r9%on688*=*hu$&4%30v)s7s221*f)vvz1a-xi'
-        SECRET_KEY = get_random_string(50, chars)
-        with open(SECRET_FILE, 'w') as f:
-            f.write(SECRET_KEY)
-    except IOError:
-        raise Exception('Could not open %s for writing!' % SECRET_FILE)
+if 'DJANGO_DEBUG_FALSE' in os.environ:
+    DEBUG = False
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+    ALLOWED_HOSTS = [os.environ['SITENAME']]
+else:
+    DEBUG = True
+    SECRET_KEY = 'insecure-key-for-dev'
+ALLOWED_HOSTS = []
