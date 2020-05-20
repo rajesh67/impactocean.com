@@ -37,7 +37,7 @@ Fabric3==1.14.post1
 future==0.16.0
 google-api-python-client==1.4.1
 gunicorn==19.7.1
-httplib2==0.11.3
+httplib2==0.18.0
 idna==2.6
 invoke==1.2.0
 ipaddress==1.0.19
